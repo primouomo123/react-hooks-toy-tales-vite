@@ -23,7 +23,7 @@ function ToyForm({ addNewToy }) {
       } else {throw new Error("Failed to create new toy")}
     })
     .then(newData => {
-      addNewToy(newToy);
+      addNewToy(newData);
       setFormData(
         {
           name: "",

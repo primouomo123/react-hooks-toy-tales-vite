@@ -31,6 +31,10 @@ function App() {
     setToys(previousToys => [...previousToys, newToy]);
   }
 
+  function deleteToy(deletedToyID) {
+    setToys(previousToys => previousToys.filter(toy => deletedToyID !== toy.id));
+  }
+
   return (
     <>
       <Header />
@@ -38,7 +42,7 @@ function App() {
       <div className="buttonContainer">
         <button onClick={handleClick}>{showForm ? "Hide Toy Addition Form" : "Add a Toy"}</button>
       </div>
-      <ToyContainer toys={toys} />
+      <ToyContainer toys={toys} donateToy={deleteToy} />
     </>
   );
 }
