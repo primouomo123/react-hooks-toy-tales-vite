@@ -35,6 +35,10 @@ function App() {
     setToys(previousToys => previousToys.filter(toy => deletedToyID !== toy.id));
   }
 
+  function likeToy(updatedToy) {
+    setToys(previousToys => previousToys.map(toy => toy.id === updatedToy.id ? updatedToy : toy));
+  }
+
   return (
     <>
       <Header />
@@ -42,7 +46,7 @@ function App() {
       <div className="buttonContainer">
         <button onClick={handleClick}>{showForm ? "Hide Toy Addition Form" : "Add a Toy"}</button>
       </div>
-      <ToyContainer toys={toys} donateToy={deleteToy} />
+      <ToyContainer toys={toys} donateToy={deleteToy} likeToy={likeToy} />
     </>
   );
 }
